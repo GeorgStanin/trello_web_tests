@@ -47,8 +47,6 @@ public class BoardCreationTests {
         click(By.cssSelector("[class='js-confirm full negate']"));
         waitSec(5);
         click(By.cssSelector("[name='house']"));
-
-
     }
 
     private void type(By locator, String letters) {
