@@ -33,8 +33,20 @@ public class BoardCreationTests {
 
     private void createTeamBoard() {
         click(By.cssSelector("[class='icon-add icon-sm _2aV_KY1gTq1qWc']"));
+        waitSec(10);
         type(By.cssSelector("[data-test-id='header-create-team-name-input']"),"Test Team Board");
-        click(By.cssSelector("[class='css-1wy0on6']"));
+        click(By.cssSelector("[id='teamTypeSelect']"));
+        click(By.cssSelector("[id='react-select-2-option-3']"));
+        waitSec(5);
+        type(By.cssSelector("[class='_15aIJYNKhrO4vB']"),"Qa23Description");
+        click(By.cssSelector("[data-test-id='header-create-team-submit-button']"));
+        waitSec(5);
+        click(By.cssSelector("[data-test-id='show-later-button']"));
+        click(By.cssSelector("[data-tab='settings']"));
+        click(By.cssSelector("[class='quiet-button']"));
+        click(By.cssSelector("[value='Delete Forever']"));
+
+
 
 
     }
@@ -95,7 +107,7 @@ public class BoardCreationTests {
         click(By.cssSelector("[class='_24AWINHReYjNBf']"));
         waitSec(5);
         click(By.cssSelector("[data-test-id='header-member-menu-logout']"));
-       // wd.quit();
+        wd.quit();
 
     }
 }
