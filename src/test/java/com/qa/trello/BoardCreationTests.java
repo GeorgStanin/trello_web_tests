@@ -23,6 +23,46 @@ public class BoardCreationTests {
     }
     @Test
     public void testBoardCreation(){
+        login();
+        createBoard();
+        closeBoard();
+        goToHomeScreen();
+        createTeamBoard();
+
+    }
+
+    private void createTeamBoard() {
+        click(By.cssSelector("[class='icon-add icon-sm _2aV_KY1gTq1qWc']"));
+        type(By.cssSelector("[data-test-id='header-create-team-name-input']"),"Test Team Board");
+        click(By.cssSelector("[class='css-1wy0on6']"));
+
+
+    }
+
+    private void goToHomeScreen() {
+        click(By.cssSelector("[class='js-confirm full negate']"));
+        waitSec(5);
+        click(By.cssSelector("[name='house']"));
+        waitSec(5);
+    }
+
+    private void closeBoard() {
+        click(By.cssSelector("[class='board-menu-navigation-item-link js-open-more']"));
+        waitSec(5);
+        click(By.cssSelector("[class='board-menu-navigation-item-link js-close-board']"));
+        waitSec(5);
+    }
+
+    private void createBoard() {
+        click(By.cssSelector("[name='add']"));
+        click(By.cssSelector("[class='_2DBw9GxD3tha0R']"));
+        type(By.cssSelector("[data-test-id='create-board-title-input']"), "TestBoard");
+        waitSec(5);
+        click(By.cssSelector("[class='_3UeOvlU6B5KUnS uj9Ovoj4USRUQz _2MgouXHqRQDP_5']"));
+        waitSec(5);
+    }
+
+    private void login() {
         click(By.cssSelector("[href='/login']"));
         waitSec(10);
         clearForm(By.cssSelector("[inputmode='email']"));
@@ -34,19 +74,6 @@ public class BoardCreationTests {
         type(By.cssSelector("[type='password']"), "Parolotatlassian1");
         click(By.cssSelector("[type='submit']"));
         waitSec(10);
-        click(By.cssSelector("[name='add']"));
-        click(By.cssSelector("[class='_2DBw9GxD3tha0R']"));
-        type(By.cssSelector("[data-test-id='create-board-title-input']"), "TestBoard");
-        waitSec(5);
-        click(By.cssSelector("[class='_3UeOvlU6B5KUnS uj9Ovoj4USRUQz _2MgouXHqRQDP_5']"));
-        waitSec(5);
-        click(By.cssSelector("[class='board-menu-navigation-item-link js-open-more']"));
-        waitSec(5);
-        click(By.cssSelector("[class='board-menu-navigation-item-link js-close-board']"));
-        waitSec(5);
-        click(By.cssSelector("[class='js-confirm full negate']"));
-        waitSec(5);
-        click(By.cssSelector("[name='house']"));
     }
 
     private void type(By locator, String letters) {
@@ -68,7 +95,7 @@ public class BoardCreationTests {
         click(By.cssSelector("[class='_24AWINHReYjNBf']"));
         waitSec(5);
         click(By.cssSelector("[data-test-id='header-member-menu-logout']"));
-        wd.quit();
+       // wd.quit();
 
     }
 }
