@@ -14,9 +14,9 @@ public class TestBase {
     public static final String NAME_BOARD_1 = "TestBoard1";
     public static final String NAME_BOARD_2 = "TestBoard2";
     public static final String NAME_BOARD_3 = "TestBoard3";
-    public static final String NAME_TBOARD_1 = "TestTBoard1";
-    public static final String NAME_TBOARD_2 = "TestTBoard2";
-    public static final String NAME_TBOARD_3 = "TestTBoard3";
+    public static final String NAME_TBOARD_1 = "TestTeamBoard1";
+    public static final String NAME_TBOARD_2 = "TestTeamBoard2";
+    public static final String NAME_TBOARD_3 = "TestTeamBoard3";
 
     WebDriver wd;
     WebDriverWait wait;
@@ -124,7 +124,7 @@ public class TestBase {
 
     }
 
-    public void initCreateTeamBoard() {
+    public void initCreateTeamBoardFromLeftSideHomeNavigation() {
         click(By.cssSelector("[data-test-id='home-navigation-create-team-button']"));
         waitSec(20);
     }
@@ -164,5 +164,28 @@ public class TestBase {
         click(By.xpath("//nav[@class='home-left-sidebar-container']//div[2]//li"));
         waitSec(10);
 
+    }
+
+    public int isSetToPublic() {
+        return wd.findElements(By.xpath("//span[contains(text(),'This board is set to public. You can change its vi')]")).size();
+    }
+
+    public void changeTypeFromPrivateToPublic() {
+        click(By.className("icon-private"));
+        click(By.className("icon-public"));
+        click(By.className("make-public-confirmation-button"));
+    }
+
+    public void selectSecondPersonalBoard() {
+        click(By.xpath("//*[@class='icon-lg icon-member']/../../..//li[2]"));
+        waitSec(10);
+    }
+
+    public int getPersonalBoardsCount() {
+        return wd.findElements(By.xpath("//*[@class='icon-lg icon-member']/../../..//li[1]")).size() - 1;
+    }
+
+    public int getBoardsCountLeftSideHomeNavigation() {
+        return wd.findElements(By.xpath("//nav[@class='home-left-sidebar-container']//div[2]//li")).size();
     }
 }
