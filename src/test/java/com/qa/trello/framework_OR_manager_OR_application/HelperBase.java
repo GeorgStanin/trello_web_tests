@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class HelperBase {
 
     WebDriver wd;
-    WebDriverWait wait;
+    WebDriverWait wait = new WebDriverWait(wd,20);
 
     public HelperBase(WebDriver wd) {
         this.wd = wd;

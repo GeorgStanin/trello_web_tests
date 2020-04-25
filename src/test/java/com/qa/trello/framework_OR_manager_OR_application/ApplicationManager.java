@@ -3,6 +3,8 @@ package com.qa.trello.framework_OR_manager_OR_application;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.BrowserType;
 
 public class ApplicationManager {
     WebDriver wd;
@@ -16,8 +18,18 @@ public class ApplicationManager {
     public static final String NAME_TBOARD_1 = "TestTeamBoard1";
     public static final String NAME_TBOARD_2 = "TestTeamBoard2";
     public static final String NAME_TBOARD_3 = "TestTeamBoard3";
+    private String browser;
 
+    public ApplicationManager(String browser) {
+        this.browser = browser;
+    }
     public void init() {
+        if (browser.equals(BrowserType.CHROME)) {
+            wd = new ChromeDriver();
+        }
+        if (browser.equals(BrowserType.FIREFOX)) {
+            wd = new FirefoxDriver();
+        }
         wd = new ChromeDriver();
         // wd.manage().window().maximize();
         wd.navigate().to("https://trello.com/");
