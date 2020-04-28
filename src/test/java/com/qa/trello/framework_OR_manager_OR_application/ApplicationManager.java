@@ -11,6 +11,7 @@ public class ApplicationManager {
     PersonalBoardHelper pBoard;
     TeamBoardHelper tBoard;
     SessionHelper session;
+    String browser;
 
     public static final String NAME_BOARD_1 = "TestBoard1";
     public static final String NAME_BOARD_2 = "TestBoard2";
@@ -18,7 +19,6 @@ public class ApplicationManager {
     public static final String NAME_TBOARD_1 = "TestTeamBoard1";
     public static final String NAME_TBOARD_2 = "TestTeamBoard2";
     public static final String NAME_TBOARD_3 = "TestTeamBoard3";
-    private String browser;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -30,9 +30,8 @@ public class ApplicationManager {
         if (browser.equals(BrowserType.FIREFOX)) {
             wd = new FirefoxDriver();
         }
-        wd = new ChromeDriver();
         // wd.manage().window().maximize();
-        wd.navigate().to("https://trello.com/");
+        wd.navigate().to("http://trello.com/");
         //---------------------------------------------Please enter  login and password-----------------------------------
         session = new SessionHelper(wd);
         session.loginAtlassian("ymfuks@gmail.com", "Parolotatlassian1");

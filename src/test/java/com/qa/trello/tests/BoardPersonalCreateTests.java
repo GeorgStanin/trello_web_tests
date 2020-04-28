@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class BoardCreateTests extends TestBase {
+public class BoardPersonalCreateTests extends TestBase {
     @BeforeMethod
     public void ensurePrecondition() throws InterruptedException {
         app.getPboard().waitSec(10);

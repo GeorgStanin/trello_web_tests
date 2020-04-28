@@ -2,6 +2,7 @@ package com.qa.trello.framework_OR_manager_OR_application;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -56,4 +57,7 @@ public class HelperBase {
         click(By.cssSelector("[href$=boards]"));
     }
 
+    public void waitForElementAndClick(By locator, int timeOut){
+        new WebDriverWait(wd,timeOut).until(ExpectedConditions.presenceOfElementLocated(locator)).click();
+    }
 }
